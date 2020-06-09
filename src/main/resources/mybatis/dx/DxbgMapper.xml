@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.dx.dx.dao.DxbgDao">
+
+	<select id="get" resultType="com.dx.dx.domain.DxbgDO">
+		select `num`,`num2`,`num3`,`num4`,`num5`,`num6`,`num7`,`num8`,`num9`,`num10`,`num11`,`num12`,`num13`,`num14`,`num15`,`num16`,`num17`,`num18`,`num19`,`num20`,`num21`,`num22`,`num23`,`num24`,`num25`,`num26`,`num27`,`num28`,`num29`,`num30` from dxbg where num = #{value}
+	</select>
+
+	<select id="list" resultType="com.dx.dx.domain.DxbgDO">
+		select `num`,`num2`,`num3`,`num4`,`num5`,`num6`,`num7`,`num8`,`num9`,`num10`,`num11`,`num12`,`num13`,`num14`,`num15`,`num16`,`num17`,`num18`,`num19`,`num20`,`num21`,`num22`,`num23`,`num24`,`num25`,`num26`,`num27`,`num28`,`num29`,`num30` from dxbg
+        <where>  
+		  		  <if test="num != null and num != ''"> and num = #{num} </if>
+		  		  <if test="num2 != null and num2 != ''"> and num2 = #{num2} </if>
+		  		  <if test="num3 != null and num3 != ''"> and num3 = #{num3} </if>
+		  		  <if test="num4 != null and num4 != ''"> and num4 = #{num4} </if>
+		  		  <if test="num5 != null and num5 != ''"> and num5 = #{num5} </if>
+		  		  <if test="num6 != null and num6 != ''"> and num6 = #{num6} </if>
+		  		  <if test="num7 != null and num7 != ''"> and num7 = #{num7} </if>
+		  		  <if test="num8 != null and num8 != ''"> and num8 = #{num8} </if>
+		  		  <if test="num9 != null and num9 != ''"> and num9 = #{num9} </if>
+		  		  <if test="num10 != null and num10 != ''"> and num10 = #{num10} </if>
+		  		  <if test="num11 != null and num11 != ''"> and num11 = #{num11} </if>
+		  		  <if test="num12 != null and num12 != ''"> and num12 = #{num12} </if>
+		  		  <if test="num13 != null and num13 != ''"> and num13 = #{num13} </if>
+		  		  <if test="num14 != null and num14 != ''"> and num14 = #{num14} </if>
+		  		  <if test="num15 != null and num15 != ''"> and num15 = #{num15} </if>
+		  		  <if test="num16 != null and num16 != ''"> and num16 = #{num16} </if>
+		  		  <if test="num17 != null and num17 != ''"> and num17 = #{num17} </if>
+		  		  <if test="num18 != null and num18 != ''"> and num18 = #{num18} </if>
+		  		  <if test="num19 != null and num19 != ''"> and num19 = #{num19} </if>
+		  		  <if test="num20 != null and num20 != ''"> and num20 = #{num20} </if>
+		  		  <if test="num21 != null and num21 != ''"> and num21 = #{num21} </if>
+		  		  <if test="num22 != null and num22 != ''"> and num22 = #{num22} </if>
+		  		  <if test="num23 != null and num23 != ''"> and num23 = #{num23} </if>
+		  		  <if test="num24 != null and num24 != ''"> and num24 = #{num24} </if>
+		  		  <if test="num25 != null and num25 != ''"> and num25 = #{num25} </if>
+		  		  <if test="num26 != null and num26 != ''"> and num26 = #{num26} </if>
+		  		  <if test="num27 != null and num27 != ''"> and num27 = #{num27} </if>
+		  		  <if test="num28 != null and num28 != ''"> and num28 = #{num28} </if>
+		  		  <if test="num29 != null and num29 != ''"> and num29 = #{num29} </if>
+		  		  <if test="num30 != null and num30 != ''"> and num30 = #{num30} </if>
+		  		</where>
+        <choose>
+            <when test="sort != null and sort.trim() != ''">
+                order by ${sort} ${order}
+            </when>
+			<otherwise>
+                order by num desc
+			</otherwise>
+        </choose>
+		<if test="offset != null and limit != null">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+	
+ 	<select id="count" resultType="int">
+		select count(*) from dxbg
+		 <where>  
+		  		  <if test="num != null and num != ''"> and num = #{num} </if>
+		  		  <if test="num2 != null and num2 != ''"> and num2 = #{num2} </if>
+		  		  <if test="num3 != null and num3 != ''"> and num3 = #{num3} </if>
+		  		  <if test="num4 != null and num4 != ''"> and num4 = #{num4} </if>
+		  		  <if test="num5 != null and num5 != ''"> and num5 = #{num5} </if>
+		  		  <if test="num6 != null and num6 != ''"> and num6 = #{num6} </if>
+		  		  <if test="num7 != null and num7 != ''"> and num7 = #{num7} </if>
+		  		  <if test="num8 != null and num8 != ''"> and num8 = #{num8} </if>
+		  		  <if test="num9 != null and num9 != ''"> and num9 = #{num9} </if>
+		  		  <if test="num10 != null and num10 != ''"> and num10 = #{num10} </if>
+		  		  <if test="num11 != null and num11 != ''"> and num11 = #{num11} </if>
+		  		  <if test="num12 != null and num12 != ''"> and num12 = #{num12} </if>
+		  		  <if test="num13 != null and num13 != ''"> and num13 = #{num13} </if>
+		  		  <if test="num14 != null and num14 != ''"> and num14 = #{num14} </if>
+		  		  <if test="num15 != null and num15 != ''"> and num15 = #{num15} </if>
+		  		  <if test="num16 != null and num16 != ''"> and num16 = #{num16} </if>
+		  		  <if test="num17 != null and num17 != ''"> and num17 = #{num17} </if>
+		  		  <if test="num18 != null and num18 != ''"> and num18 = #{num18} </if>
+		  		  <if test="num19 != null and num19 != ''"> and num19 = #{num19} </if>
+		  		  <if test="num20 != null and num20 != ''"> and num20 = #{num20} </if>
+		  		  <if test="num21 != null and num21 != ''"> and num21 = #{num21} </if>
+		  		  <if test="num22 != null and num22 != ''"> and num22 = #{num22} </if>
+		  		  <if test="num23 != null and num23 != ''"> and num23 = #{num23} </if>
+		  		  <if test="num24 != null and num24 != ''"> and num24 = #{num24} </if>
+		  		  <if test="num25 != null and num25 != ''"> and num25 = #{num25} </if>
+		  		  <if test="num26 != null and num26 != ''"> and num26 = #{num26} </if>
+		  		  <if test="num27 != null and num27 != ''"> and num27 = #{num27} </if>
+		  		  <if test="num28 != null and num28 != ''"> and num28 = #{num28} </if>
+		  		  <if test="num29 != null and num29 != ''"> and num29 = #{num29} </if>
+		  		  <if test="num30 != null and num30 != ''"> and num30 = #{num30} </if>
+		  		</where>
+	</select>
+	 
+	<insert id="save">
+		insert into dxbg
+		(
+			`num`, 
+			`num2`, 
+			`num3`, 
+			`num4`, 
+			`num5`, 
+			`num6`, 
+			`num7`, 
+			`num8`, 
+			`num9`, 
+			`num10`, 
+			`num11`, 
+			`num12`, 
+			`num13`, 
+			`num14`, 
+			`num15`, 
+			`num16`, 
+			`num17`, 
+			`num18`, 
+			`num19`, 
+			`num20`, 
+			`num21`, 
+			`num22`, 
+			`num23`, 
+			`num24`, 
+			`num25`, 
+			`num26`, 
+			`num27`, 
+			`num28`, 
+			`num29`, 
+			`num30`
+		)
+		VALUES
+		<foreach collection="ecds" item="ecd" separator=",">
+			(
+			#{ecd.num},
+			#{ecd.num2},
+			#{ecd.num3},
+			#{ecd.num4},
+			#{ecd.num5},
+			#{ecd.num6},
+			#{ecd.num7},
+			#{ecd.num8},
+			#{ecd.num9},
+			#{ecd.num10},
+			#{ecd.num11},
+			#{ecd.num12},
+			#{ecd.num13},
+			#{ecd.num14},
+			#{ecd.num15},
+			#{ecd.num16},
+			#{ecd.num17},
+			#{ecd.num18},
+			#{ecd.num19},
+			#{ecd.num20},
+			#{ecd.num21},
+			#{ecd.num22},
+			#{ecd.num23},
+			#{ecd.num24},
+			#{ecd.num25},
+			#{ecd.num26},
+			#{ecd.num27},
+			#{ecd.num28},
+			#{ecd.num29},
+			#{ecd.num30}
+			)
+		</foreach>
+
+	</insert>
+	 
+	<update id="update" parameterType="com.dx.dx.domain.DxbgDO">
+		update dxbg 
+		<set>
+			<if test="num2 != null">`num2` = #{num2}, </if>
+			<if test="num3 != null">`num3` = #{num3}, </if>
+			<if test="num4 != null">`num4` = #{num4}, </if>
+			<if test="num5 != null">`num5` = #{num5}, </if>
+			<if test="num6 != null">`num6` = #{num6}, </if>
+			<if test="num7 != null">`num7` = #{num7}, </if>
+			<if test="num8 != null">`num8` = #{num8}, </if>
+			<if test="num9 != null">`num9` = #{num9}, </if>
+			<if test="num10 != null">`num10` = #{num10}, </if>
+			<if test="num11 != null">`num11` = #{num11}, </if>
+			<if test="num12 != null">`num12` = #{num12}, </if>
+			<if test="num13 != null">`num13` = #{num13}, </if>
+			<if test="num14 != null">`num14` = #{num14}, </if>
+			<if test="num15 != null">`num15` = #{num15}, </if>
+			<if test="num16 != null">`num16` = #{num16}, </if>
+			<if test="num17 != null">`num17` = #{num17}, </if>
+			<if test="num18 != null">`num18` = #{num18}, </if>
+			<if test="num19 != null">`num19` = #{num19}, </if>
+			<if test="num20 != null">`num20` = #{num20}, </if>
+			<if test="num21 != null">`num21` = #{num21}, </if>
+			<if test="num22 != null">`num22` = #{num22}, </if>
+			<if test="num23 != null">`num23` = #{num23}, </if>
+			<if test="num24 != null">`num24` = #{num24}, </if>
+			<if test="num25 != null">`num25` = #{num25}, </if>
+			<if test="num26 != null">`num26` = #{num26}, </if>
+			<if test="num27 != null">`num27` = #{num27}, </if>
+			<if test="num28 != null">`num28` = #{num28}, </if>
+			<if test="num29 != null">`num29` = #{num29}, </if>
+			<if test="num30 != null">`num30` = #{num30}</if>
+		</set>
+		where num = #{num}
+	</update>
+	
+	<delete id="remove">
+		delete from dxbg where num = #{value}
+	</delete>
+
+	<delete id="removeAll">
+		delete from dxbg
+	</delete>
+	
+	<delete id="batchRemove">
+		delete from dxbg where num in 
+		<foreach item="num" collection="array" open="(" separator="," close=")">
+			#{num}
+		</foreach>
+	</delete>
+
+</mapper>
