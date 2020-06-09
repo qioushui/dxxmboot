@@ -8,6 +8,8 @@ import com.dx.common.utils.XLSX2CSV;
 import com.dx.dx.domain.DxbgDO;
 import com.dx.dx.service.DxbgService;
 import org.apache.poi.openxml4j.exceptions.OpenXML4JException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -21,7 +23,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Controller
-public class TestController  extends BaseController {
+public class DxController extends BaseController {
 
     @Resource
     private DxbgService dxbgService ;
@@ -90,6 +92,7 @@ public class TestController  extends BaseController {
        return "";
     }
 */
+   private static final Logger logger = LoggerFactory.getLogger(DxController.class);
 
     @PostMapping( "/tabulation")
     @ResponseBody
@@ -99,10 +102,8 @@ public class TestController  extends BaseController {
         dxbgService.removeAll();
         String fileName = bootdoConfig.getUploadPath() + sysFileService.get(id).getUrl().replace("/files/", "");
         File file = new File(fileName);
-        System.out.println("......开始读取...");
+        logger.info("......开始读取.......");
         List<String[]> list = XLSX2CSV.readerExcelInputStream(file, 30);//默认读取30列
-        System.out.println("数据量：" + list.size());
-        System.out.println(list.get(1));
         //拆分成 1000条
         int splitNumber = 1000;
         // 拆分后的数据集
@@ -153,7 +154,6 @@ public class TestController  extends BaseController {
             dxbgService.save(agreementList);
         }
         return  R.ok() ;
-
     }
 
 
